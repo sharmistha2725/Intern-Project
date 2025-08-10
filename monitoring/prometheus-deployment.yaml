@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: prometheus
-        image: ghcr.io/<your-github-username>/prometheus:latest
+        image: prom/prometheus:latest
         ports:
         - containerPort: 9090
         volumeMounts:
