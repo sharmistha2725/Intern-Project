@@ -7,12 +7,16 @@ resource "aws_iam_role" "eks_node_role" {
     Statement = [{
       Effect = "Allow"
       Principal = {
-        Service = "ec2.amazonaws.com"
+        Service = [
+          "ec2.amazonaws.com",
+          "eks.amazonaws.com"
+        ]
       }
       Action = "sts:AssumeRole"
     }]
   })
 }
+
 
 resource "aws_iam_role_policy_attachment" "eks_node_AmazonEKSWorkerNodePolicy" {
   role       = aws_iam_role.eks_node_role.name

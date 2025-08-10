@@ -45,12 +45,13 @@ module "eks" {
 
 # 5. EC2 (Monitoring Subnet)
 module "ec2" {
-  source                = "./modules/ec2"
-  subnet_ids            = module.vpc.monitoring_subnet_ids
-  security_group_ids    = [module.security_groups.ec2_sg_id]
-  ec2_key_name          = var.ec2_key_name
-  ec2_monitoring_role_arn = module.iam.ec2_monitoring_role_arn
+  source                  = "./modules/ec2"
+  subnet_ids              = module.vpc.monitoring_subnet_ids
+  security_group_ids      = [module.security_groups.ec2_sg_id]
+  ec2_key_name            = var.ec2_key_name
+  ec2_monitoring_role_arn = module.iam.ec2_monitoring_role_arn   # <-- changed here
 }
+
 
 
 # 6. RDS
